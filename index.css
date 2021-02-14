@@ -5,6 +5,10 @@ body {
   overflow: hidden;
 }
 
+#run {
+  width: 100%;
+}
+
 #generator {
   display: table-row;
   height: 100%;

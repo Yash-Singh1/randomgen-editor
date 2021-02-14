@@ -13,7 +13,7 @@ window.onresize = function () {
   setCmSize();
 };
 
-cm.on('change', () => {
+document.getElementById('run').onclick = () => {
   if (typeof key === 'string') {
     fetch('/delete', {
       method: 'DELETE',
@@ -38,14 +38,16 @@ cm.on('change', () => {
       key +
       '.txt';
   });
-});
+};
 
 window.onbeforeunload = function () {
-  fetch('/delete', {
-    method: 'DELETE',
-    body: key,
-    headers: {
-      'Content-Type': 'text/plain',
-    },
-  });
+  if (typeof key === 'string') {
+    fetch('/delete', {
+      method: 'DELETE',
+      body: key,
+      headers: {
+        'Content-Type': 'text/plain',
+      },
+    });
+  }
 };
