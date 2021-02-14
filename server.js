@@ -20,11 +20,15 @@ app.get('/valueFromKey/*', (req, res) => {
     'Content-Type': 'text/plain',
     'Access-Control-Allow-Origin': '*',
   });
-  res.send(
-    generatorUploads.find(
-      (upload) => upload.key === req.path.split('&')[0].slice(14, -4)
-    ).value
-  );
+  try {
+    res.send(
+      generatorUploads.find(
+        (upload) => upload.key === req.path.split('&')[0].slice(14, -4)
+      ).value
+    );
+  } catch {
+    res.status(404);
+  }
 });
 
 app.get('/*', (req, res) => {
@@ -55,7 +59,7 @@ app.delete('/delete', (req, res) => {
   generatorUploads = generatorUploads.filter(
     (upload) => upload.key === req.body
   );
-  res.sendStatus(200);
+  res.status(200);
 });
 
 app.listen(process.env.PORT || 1579);
