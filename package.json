@@ -1,0 +1,19 @@
+{
+  "name": "randomgen-editor",
+  "description": "Editor for RandomGen",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "keywords": [
+    "randomgen",
+    "editor"
+  ],
+  "author": "Yash Singh",
+  "license": "MIT",
+  "dependencies": {
+    "codemirror": "^5.59.2",
+    "express": "^4.17.1",
+    "uuid": "^8.3.2"
+  }
+}
