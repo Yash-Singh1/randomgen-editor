@@ -1,14 +1,14 @@
 const express = require("express");
 const app = express();
 const fs = require("fs");
-const uuid = require("uuid");
+const {v4} = require("uuid");
 
 generatorUploads = [];
 
 function ensureNoDuplicates() {
-  value = uuid.v4();
+  value = v4();
   while (generatorUploads.find((upload) => upload.key === value)) {
-    value = uuid.v4();
+    value = v4();
   }
   return value;
 }
@@ -53,9 +53,5 @@ app.post("/upload", (req, res) => {
   res.send(key);
 });
 
-app.delete("/delete", (req, res) => {
-  generatorUploads = generatorUploads.filter((upload) => upload.key === req.body);
-  res.status(200);
-});
-
-app.listen(process.env.PORT || 1579);
+const port = process.env.PORT || 1579;
+app.listen(port);
