@@ -23,7 +23,7 @@ app.get("/valueFromKey/*", (req, res) => {
   let key = req.path.split("&")[0].slice(14, -4);
   try {
     res.send(generatorUploads.find((upload) => upload.key === key).value);
-    generatorUploads = generatorUploads.filter((upload) => upload.key === key);
+    generatorUploads = generatorUploads.filter((upload) => upload.key !== key);
   } catch {
     res.status(404);
   }
