@@ -1,6 +1,7 @@
 const cm = CodeMirror.fromTextArea(document.getElementById('editor'), {
   theme: 'midnight',
-  lineNumbers: true
+  lineNumbers: true,
+  mode: 'randomgen'
 });
 
 if (localStorage.getItem('code')) {
