@@ -1,5 +1,5 @@
 const cm = CodeMirror.fromTextArea(document.getElementById('editor'), {
-  theme: '3024-night',
+  theme: 'midnight',
   lineNumbers: true
 });
 
