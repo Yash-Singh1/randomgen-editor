@@ -16,5 +16,13 @@
     "codemirror-mode-randomgen": "^1.1.1",
     "express": "^4.17.1",
     "uuid": "^8.3.2"
+  },
+  "homepage": "https://github.com/Yash-Singh1/randomgen-editor#readme",
+  "bugs": {
+    "url": "https://github.com/Yash-Singh1/randomgen-editor/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Yash-Singh1/randomgen-editor"
   }
 }
