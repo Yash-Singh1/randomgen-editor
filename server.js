@@ -39,8 +39,7 @@ app.post('/upload', (req, res) => {
   let key = v4();
   generatorUploads.push({
     value: req.body,
-    key,
-    ip: req.ip
+    key
   });
   res.send(key);
 });
