@@ -5,14 +5,6 @@ const { v4 } = require('uuid');
 
 generatorUploads = [];
 
-function ensureNoDuplicates() {
-  value = v4();
-  while (generatorUploads.find((upload) => upload.key === value)) {
-    value = v4();
-  }
-  return value;
-}
-
 app.use(express.text());
 
 app.get('/valueFromKey/*', (req, res) => {
@@ -44,7 +36,7 @@ app.get('/*', (req, res) => {
 });
 
 app.post('/upload', (req, res) => {
-  let key = ensureNoDuplicates();
+  let key = v4();
   generatorUploads.push({
     value: req.body,
     key,
