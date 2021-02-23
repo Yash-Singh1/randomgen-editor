@@ -9,7 +9,7 @@ if (localStorage.getItem('code')) {
 }
 
 function setCmSize() {
-  cm.setSize(window.innerWidth, window.innerHeight / 2);
+  cm.setSize(window.innerWidth, window.innerHeight * 0.485);
 }
 
 setCmSize();
