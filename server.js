@@ -1,5 +1,6 @@
 const express = require('express');
 const app = express();
+const { join } = require('path');
 const fs = require('fs');
 const { v4 } = require('uuid');
 
@@ -21,17 +22,21 @@ app.get('/valueFromKey/*', (req, res) => {
   }
 });
 
+app.get('/favicon.ico', (req, res) => {
+  res.sendStatus(204);
+});
+
 app.get('/*', (req, res) => {
-  if (req.path !== '/' && !fs.existsSync(req.path.substring(1))) {
-    return res.status(204);
+  if (req.path !== '/' && !fs.existsSync(join(req.path.startsWith('/node_modules/') ? '.' : 'dist', req.path.substring(1)))) {
+    return res.status(404);
   }
 
   if (req.path === '/') {
-    res.sendFile('index.html', { root: './' });
+    res.sendFile('./dist/index.html', { root: './' });
   } else if (req.path === '/index.html') {
     res.redirect('/');
   } else {
-    res.sendFile(req.path.substring(1), { root: './' });
+    res.sendFile(req.path.substring(1), { root: req.path.startsWith('/node_modules/') ? '.' : './dist/' });
   }
 });
 
