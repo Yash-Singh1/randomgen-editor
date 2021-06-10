@@ -8,7 +8,7 @@ Editor for RandomGen.
 npm start
 ```
 
-Now the server is running on `:1579`. However, only the UI will be visible, because the `localhost` server is obviously not running on RandomGen's PHP server.
+Now the server is running on `:1579`. However, since RandomGen's PHP server sends another request to the given URL, and the `localhost` is obviously not running on Randomgen's server, running RandomGen code won't be possible.
 
 ## Demo
 
